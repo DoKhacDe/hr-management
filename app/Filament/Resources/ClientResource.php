@@ -24,8 +24,8 @@ class ClientResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')->required(),
                 Forms\Components\TextInput::make('phone')->required(),
-                Forms\Components\TextInput::make('email')->required()->email()->unique(),
-                Forms\Components\TextInput::make('balance')->required(),
+                Forms\Components\TextInput::make('email')->required()->email(),
+                Forms\Components\TextInput::make('address'),
                 TextArea::make('notes')
             ]);
     }
@@ -37,7 +37,7 @@ class ClientResource extends Resource
                 Tables\Columns\TextColumn::make('name')->searchable(),
                 Tables\Columns\TextColumn::make('email')->searchable(),
                 Tables\Columns\TextColumn::make('phone')->searchable(),
-                Tables\Columns\TextColumn::make('balance'),
+                Tables\Columns\TextColumn::make('address'),
                 Tables\Columns\TextColumn::make('notes'),
             ])
             ->filters([
@@ -56,6 +56,7 @@ class ClientResource extends Resource
     public static function getRelations(): array
     {
         return [
+            RelationManagers\OrdersRelationManager::class,
             RelationManagers\DocumentsRelationManager::class,
         ];
     }
