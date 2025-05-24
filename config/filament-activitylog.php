@@ -2,8 +2,8 @@
 
 return [
     'resources' => [
-        'label'                  => 'Activity Log',
-        'plural_label'           => 'Activity Logs',
+        'label'                  => 'Nhật ký hoạt động',
+        'plural_label'           => 'Nhật ký hoạt động',
         'navigation_item'        => true,
         'navigation_group'       => null,
         'navigation_icon'        => 'heroicon-o-shield-check',

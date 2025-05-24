@@ -22,11 +22,11 @@ class ClientResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required(),
-                Forms\Components\TextInput::make('phone')->required(),
-                Forms\Components\TextInput::make('email')->required()->email(),
-                Forms\Components\TextInput::make('address'),
-                TextArea::make('notes')
+                Forms\Components\TextInput::make('name')->label(__('custom.client.name'))->required(),
+                Forms\Components\TextInput::make('phone')->label(__('custom.client.phone'))->required(),
+                Forms\Components\TextInput::make('email')->label(__('custom.client.email'))->required()->email(),
+                Forms\Components\TextInput::make('address')->label(__('custom.client.address')),
+                TextArea::make('notes')->label(__('custom.client.notes'))
             ]);
     }
 
@@ -34,11 +34,11 @@ class ClientResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')->searchable(),
-                Tables\Columns\TextColumn::make('email')->searchable(),
-                Tables\Columns\TextColumn::make('phone')->searchable(),
-                Tables\Columns\TextColumn::make('address'),
-                Tables\Columns\TextColumn::make('notes'),
+                Tables\Columns\TextColumn::make('name')->label(__('custom.client.name'))->searchable(),
+                Tables\Columns\TextColumn::make('email')->label(__('custom.client.email'))->searchable(),
+                Tables\Columns\TextColumn::make('phone')->label(__('custom.client.phone'))->searchable(),
+                Tables\Columns\TextColumn::make('address')->label(__('custom.client.address')),
+                Tables\Columns\TextColumn::make('notes')->label(__('custom.client.notes')),
             ])
             ->filters([
                 //
